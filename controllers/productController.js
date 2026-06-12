@@ -306,7 +306,7 @@ exports.getProductsByCategory = async (req, res) => {
 // ========== GET RANDOM PRODUCTS ==========
 exports.getRandomProducts = async (req, res) => {
   try {
-    const limit = parseInt(req.query.limit) || 20;
+    const limit = parseInt(req.query.limit) || 1000;
     const products = await Product.aggregate([{ $sample: { size: limit } }]);
     res.status(200).json({
       success: true,
